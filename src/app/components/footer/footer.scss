@@ -1,0 +1,45 @@
+.spartan-footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+  
+    .footer-logo {
+      font-weight: bold;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #00e676;
+    }
+  
+    .footer-menu {
+      margin-bottom: 1rem;
+  
+      a {
+        color: #00e676;
+        text-decoration: none;
+        margin: 0 1rem;
+        font-weight: bold;
+      }
+    }
+  
+    .footer-social {
+      margin-bottom: 1rem;
+  
+      a {
+        color: white;
+        margin: 0 0.7rem;
+        text-decoration: none;
+      }
+    }
+  
+    .download-app {
+      background-color: #00e676;
+      color: black;
+      border: none;
+      border-radius: 30px;
+      padding: 0.8rem 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+  
