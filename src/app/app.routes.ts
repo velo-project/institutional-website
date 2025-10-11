@@ -1,6 +1,11 @@
 import { Routes } from '@angular/router';
 import { Home } from './features/home/home';
 
+// TODO TitleStrategy
 export const routes: Routes = [
-  { path: '', component: Home }
+  {
+    title: 'Velo',
+    path: '', 
+    component: Home
+  }
 ];
