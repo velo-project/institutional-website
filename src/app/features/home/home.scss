@@ -14,6 +14,36 @@ $bg: #FDFEF6;
   font-family: 'Inter', sans-serif;
 }
 
+.btn {
+  display: inline-block;
+  padding: 2rem 6rem;
+  border-radius: 999px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.4s ease;
+
+  &.primary {
+    background: $green;
+    color: $dark;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  &.secondary {
+    background: transparent;
+    color: $dark;
+    border: 2px solid $green;
+
+    &:hover {
+      background: $green;
+      color: $dark;
+    }
+  }
+}
+
 // =======================
 // 🌿 HERO
 // =======================
@@ -30,7 +60,7 @@ $bg: #FDFEF6;
     max-width: 500px;
 
     h1 {
-      font-size: 2.8rem;
+      font-size: 5rem;
       font-weight: 800;
       line-height: 1.1;
       margin-bottom: 2rem;
@@ -40,35 +70,6 @@ $bg: #FDFEF6;
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
-
-      .btn {
-        display: inline-block;
-        padding: 0.8rem 1.6rem;
-        border-radius: 999px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.2s ease;
-
-        &.primary {
-          background: $green;
-          color: $dark;
-
-          &:hover {
-            transform: translateY(-2px);
-          }
-        }
-
-        &.secondary {
-          background: transparent;
-          color: $dark;
-          border: 2px solid $green;
-
-          &:hover {
-            background: $green;
-            color: $dark;
-          }
-        }
-      }
     }
   }
 
@@ -116,60 +117,40 @@ $bg: #FDFEF6;
   */
 }
 
-.text1{
-  font-size: 19rem;
-}
-
 .radical-section {
   text-align: right; 
   display: flex;
   justify-content: right;
   align-items: center;
   padding: 4rem 10%;
-  background-color: $bg;
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
   margin-bottom: 2rem;
 
   .radical-content {
     text-align: right;
 
     h2 {
-      font-size: 2rem;
+      font-size: 4.5rem;
       font-weight: 800;
       margin-bottom: 1.5rem;
       color: $dark;
-    }
-
-    .btn {
-      &.primary {
-        background: $green;
-        color: $dark;
-        padding: 0.8rem 2rem;
-        border-radius: 999px;
-        font-weight: 600;
-        transition: all 0.2s ease;
-
-        &:hover {
-          transform: translateY(-2px);
-        }
-      }
     }
   }
 }
 
 .divisor{
   display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem;
-    border-radius: 100px;
-    width: 95%;
-    height: 0px;
-    margin: 1rem auto 2rem auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  border-radius: 100px;
+  width: 85%;
+  height: 0px;
+  margin: 1rem auto 2rem auto;
     -webkit-box-shadow: 0px 0px 25px -7px #000000cb;
     box-shadow: 0px 0px 25px -7px #000000cb;
 }
+
 // =======================
 // 🌿 TABS SECTION
 // =======================
@@ -178,17 +159,17 @@ $bg: #FDFEF6;
   padding: 5rem 1rem;
 
   h2 {
-    font-size: 2rem;
+    font-size: 4rem;
     font-weight: 800;
     margin-bottom: 2rem;
   }
 
   .tabs {
     display: inline-flex;
-    background-color: $bg;
     border-radius: 50px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     overflow: hidden;
+    font-size: 2rem;
 
     li {
       list-style: none;

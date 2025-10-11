@@ -1,3 +1,7 @@
+a {
+  color: var(--bg);
+}
+
 .image-velo{
   transform: scale(1.4) ;
   display: flex;
@@ -8,8 +12,8 @@
 
 .footer {
   background-color: #23272A;
-  color: #FDFEF6;
-  padding: 40px;
+  color: var(--bg);
+  padding: 20px 40px 5px 40px;
   font-family: sans-serif;
 }
 
@@ -39,11 +43,6 @@
   margin-bottom: 8px;
 }
 
-.footer-column ul li a {
-  color: #FDFEF6;
-  text-decoration: none;
-}
-
 .footer-column ul li a:hover {
   text-decoration: underline;
 }
@@ -56,7 +55,7 @@
 
 /* Imagens da App Store e Google Play */
 .footer-column img {
-  width: 140px;
+  width: 10rem;
   margin: 10px 0;
 }
 
