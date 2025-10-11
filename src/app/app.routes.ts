@@ -1,9 +1,6 @@
 import { Routes } from '@angular/router';
-import { NavbarComponent } from './components/navbar/navbar';
-import { Home } from './routes/home/home';
+import { Home } from './features/home/home';
 
 export const routes: Routes = [
-    {path:"",
-     component: Home
-    }
+  { path: '', component: Home }
 ];
