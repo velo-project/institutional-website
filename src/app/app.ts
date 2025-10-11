@@ -2,12 +2,13 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
-import { NavbarComponent } from './components/navbar/navbar';
-import { FooterComponent } from './components/footer/footer';
+import { Navbar } from './core/layout/components/navbar/navbar';
+import { Footer } from './core/layout/components/footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, FooterComponent],
+  standalone: true,
+  imports: [RouterOutlet, Navbar, Footer],
   templateUrl: './app.html',
   styleUrls: ['./app.scss'],
   providers: [provideAnimations()]
