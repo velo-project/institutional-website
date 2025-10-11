@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from "../../components/navbar/navbar";
-import { FooterComponent } from "../../components/footer/footer";
+import { Navbar } from '../../core/layout/components/navbar/navbar';
+import { Footer } from '../../core/layout/components/footer/footer';
 
 @Component({
   selector: 'app-home',
-  imports: [NavbarComponent, FooterComponent],
+  standalone: true,
+  imports: [Footer, Navbar],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
