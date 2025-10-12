@@ -1,9 +1,27 @@
 // =======================
-// 🌿 Paleta de cores
+// ANIMAÇÕES
 // =======================
-$green: #40FF78;
-$dark: #23272A;
-$bg: #FDFEF6;
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes growIn {
+  0% {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
 // =======================
 // 🌿 Estilos Globais
@@ -24,8 +42,8 @@ $bg: #FDFEF6;
   transition: all 0.4s ease;
 
   &.primary {
-    background: $green;
-    color: $dark;
+    background: var(--green);
+    color: var(--dark);
 
     &:hover {
       transform: translateY(-2px);
@@ -34,12 +52,12 @@ $bg: #FDFEF6;
 
   &.secondary {
     background: transparent;
-    color: $dark;
-    border: 2px solid $green;
+    color: var(--dark);
+    border: 2px solid var(--green);
 
     &:hover {
-      background: $green;
-      color: $dark;
+      background: var(--green);
+      color: var(--dark);
     }
   }
 }
@@ -55,7 +73,6 @@ $bg: #FDFEF6;
   padding: 4rem 10%;
   position: relative;
 
-  // Conteúdo do Hero (texto e botões)
   .hero-content {
     max-width: 500px;
 
@@ -100,7 +117,7 @@ $bg: #FDFEF6;
       &.blue {
         width: 180px;
         height: 180px;
-        background: $blue-gradient;
+        background: var(--blue-gradient);
         top: -2rem;
         right: 4rem;
       }
@@ -108,7 +125,7 @@ $bg: #FDFEF6;
       &.ring {
         width: 200px;
         height: 200px;
-        border: 20px solid $green;
+        border: 20px solid var(--green;
         top: 4rem;
         right: -2rem;
       }
@@ -118,7 +135,7 @@ $bg: #FDFEF6;
 }
 
 .radical-section {
-  text-align: right; 
+  text-align: right;
   display: flex;
   justify-content: right;
   align-items: center;
@@ -133,12 +150,12 @@ $bg: #FDFEF6;
       font-size: 4.5rem;
       font-weight: 800;
       margin-bottom: 1.5rem;
-      color: $dark;
+      color: var(--dark);
     }
   }
 }
 
-.divisor{
+.divisor {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -147,50 +164,85 @@ $bg: #FDFEF6;
   width: 85%;
   height: 0px;
   margin: 1rem auto 2rem auto;
-    -webkit-box-shadow: 0px 0px 25px -7px #000000cb;
-    box-shadow: 0px 0px 25px -7px #000000cb;
+  -webkit-box-shadow: 0px 0px 25px -7px #000000cb;
+  box-shadow: 0px 0px 25px -7px #000000cb;
 }
 
 // =======================
 // 🌿 TABS SECTION
+// TODO Separar em um componente individual, com entrada de um Array
 // =======================
 .tabs-section {
   text-align: center;
   padding: 5rem 1rem;
 
+  .reveal-in {
+    animation: fadeUp 600ms ease-out both;
+    will-change: transform, opacity;
+  }
+
   h2 {
     font-size: 4rem;
     font-weight: 800;
     margin-bottom: 2rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
   }
 
+  // Container das abas com underline animado
   .tabs {
+    position: relative;
     display: inline-flex;
-    border-radius: 50px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    align-items: center;
+    gap: 0;
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.03);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
     overflow: hidden;
     font-size: 2rem;
+    animation: growIn 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    border-radius: 50px;
 
     li {
+      position: relative;
+      z-index: 1; // fica acima do underline
       list-style: none;
 
       a {
         display: block;
-        padding: 0.8rem 1.6rem;
         text-decoration: none;
-        color: $dark;
+        color: var(--dark);
         font-weight: 600;
-        transition: all 0.2s ease;
+        border-radius: 999px;
+        transition: color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+        will-change: transform;
+        padding: 0.8rem 1.6rem;
 
         &.active {
-          color: $dark;
-          border-bottom: 3px solid $green;
+          color: var(--dark);
         }
 
         &:hover {
+          transform: translateY(-1px) scale(1.02);
           background: rgba(0, 0, 0, 0.05);
         }
       }
+    }
+
+    // Underline deslizante
+    .tabs-underline {
+      position: absolute;
+      bottom: 4px;
+      height: 3px;
+      background: var(--green);
+      border-radius: 2px;
+      transition: left 220ms ease, width 220ms ease;
+      will-change: left, width;
+      content: '';
+      left: 8px;
+      width: 0;
+      pointer-events: none;
     }
   }
 }
