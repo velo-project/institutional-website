@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { NavbarUnderlineDirective } from "./navbar-underline.directive";
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+  imports: [NavbarUnderlineDirective],
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.scss']
 })

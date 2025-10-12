@@ -1,11 +1,13 @@
-<nav class="navbar">
-    <div class="logo">
-      <img class="image-velo" src="/assets/velo-navbar.png" alt="">
-    </div>
-    <ul class="menu">
-      <li><a class="active" routerLink="/">inicio</a></li>
-      <li><a routerLink="/contato">contato</a></li>
-      <li><a routerLink="/sobre">sobre</a></li>
-      <li><a routerLink="/suporte">suporte</a></li>
-    </ul>
-  </nav>
+<nav class="navbar animated-navbar" navbarUnderline>
+  <div class="logo">
+    <img class="image-velo" src="/assets/velo-navbar.png" alt="" />
+  </div>
+  <ul class="menu" role="menubar">
+    <li><a class="active" routerLink="/" role="menuitem">inicio</a></li>
+    <li><a routerLink="/contato" role="menuitem">contato</a></li>
+    <li><a routerLink="/sobre" role="menuitem">sobre</a></li>
+    <li><a routerLink="/suporte" role="menuitem">suporte</a></li>
+    <span class="menu-underline"></span>
+    <span class="menu-ink"></span>
+  </ul>
+</nav>
