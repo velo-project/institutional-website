@@ -7,15 +7,19 @@ import { DOCUMENT } from '@angular/common';
 export class NavbarUnderlineDirective implements AfterViewInit {
   private menu!: HTMLElement;
   private links!: HTMLAnchorElement[];
-  private underline!: HTMLSpanElement;
   private ink!: HTMLSpanElement;
 
-  constructor(private el: ElementRef<HTMLElement>, private zone: NgZone, @Inject(DOCUMENT) private doc: Document) {}
+  private animationFrameId: number | null = null;
+
+  constructor(
+    private el: ElementRef<HTMLElement>,
+    private zone: NgZone,
+    @Inject(DOCUMENT) private doc: Document
+  ) {}
 
   ngAfterViewInit(): void {
     this.menu = this.el.nativeElement.querySelector('.menu') as HTMLElement;
     this.links = Array.from(this.menu.querySelectorAll('a'));
-    this.underline = this.menu.querySelector('.menu-underline') as HTMLSpanElement;
     this.ink = this.menu.querySelector('.menu-ink') as HTMLSpanElement;
 
     this.zone.runOutsideAngular(() => {
@@ -41,18 +45,21 @@ export class NavbarUnderlineDirective implements AfterViewInit {
   }
 
   private moveTo(target: HTMLAnchorElement, showInk: boolean) {
-    const menuRect = this.menu.getBoundingClientRect();
-    const rect = target.getBoundingClientRect();
-    const left = rect.left - menuRect.left;
-    const width = rect.width;
+    if (this.animationFrameId !== null) {
+      cancelAnimationFrame(this.animationFrameId);
+    }
+    this.animationFrameId = requestAnimationFrame(() => {
+      const menuRect = this.menu.getBoundingClientRect();
+      const rect = target.getBoundingClientRect();
+      const left = rect.left - menuRect.left;
+      const width = rect.width;
 
-    // Underline
-    this.underline.style.left = `${left}px`;
-    this.underline.style.width = `${Math.max(24, width)}px`;
+      // Atualiza a posição, largura e opacidade do "ink"
+      this.ink.style.left = `${left}px`;
+      this.ink.style.width = `${width}px`;
+      this.ink.style.opacity = showInk ? '1' : '100';
 
-    // Ink background following item
-    this.ink.style.left = `${left}px`;
-    this.ink.style.width = `${width}px`;
-    this.ink.style.opacity = showInk ? '1' : '0.75';
+      this.animationFrameId = null;
+    });
   }
 }
