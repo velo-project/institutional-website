@@ -24,6 +24,21 @@ a {
   padding: 20px;
 }
 
+.social-icons-list li a {
+  height: auto;
+  width: 18px;
+  display: flex;           /* coloca ícone e texto na mesma linha */
+  align-items: center;     /* alinha verticalmente ao centro */
+  gap: 0.5rem;             /* espaço pequeno entre ícone e texto */
+  text-decoration: none;   /* remove sublinhado, se quiser */
+  color: inherit;          /* mantém herança de cor */
+}
+
+.social-icon {
+  width: 18px;
+  height: auto;        /* para o ícone não encolher */
+}
+
 .footer-column {
   flex: 1 1 200px;
   margin: 10px;
