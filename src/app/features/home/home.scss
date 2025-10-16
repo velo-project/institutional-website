@@ -26,10 +26,6 @@
 // =======================
 // 🌿 Estilos Globais
 // =======================
-:host {
-  display: block;
-  min-height: 100vh;
-}
 
 .btn {
   display: inline-block;
@@ -88,49 +84,6 @@
       gap: 1rem;
     }
   }
-
-  // Se quiser remover as bolas, comente ou apague todo bloco abaixo
-  /*
-  .hero-decoration {
-    flex: 1;
-    min-width: 280px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-
-    .tagline {
-      position: absolute;
-      bottom: -2rem;
-      right: 0;
-      font-weight: 700;
-      font-size: 1.2rem;
-      text-align: right;
-      line-height: 1.2;
-    }
-
-    .circle {
-      position: absolute;
-      border-radius: 50%;
-
-      &.blue {
-        width: 180px;
-        height: 180px;
-        background: var(--blue-gradient);
-        top: -2rem;
-        right: 4rem;
-      }
-
-      &.ring {
-        width: 200px;
-        height: 200px;
-        border: 20px solid var(--green;
-        top: 4rem;
-        right: -2rem;
-      }
-    }
-  }
-  */
 }
 
 .radical-section {
