@@ -1,0 +1,164 @@
+.contact-section {
+  position: relative;
+  width: 100%;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background-color: var(--bg); // <-- Mudança
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+// Círculos decorativos
+.circle-decoration {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.circle-blue {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, var(--blue), #00aaff); // <-- Mudança
+  top: 15%;
+  left: 25%;
+}
+
+.circle-green-outline {
+  width: 360px;
+  height: 360px;
+  border: 55px solid var(--green); // <-- Mudança
+  opacity: 0.8;
+  top: 35%;
+  left: -120px;
+}
+
+// Conteúdo principal
+.contact-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 450px;
+  margin-left: 30%;
+}
+
+.contact-header {
+  margin-bottom: 2.5rem;
+
+  h2 {
+    font-size: normal;
+    font-weight: 700;
+    color: var(--dark); // <-- Mudança
+    line-height: 1.2;
+    position: relative;
+    text-align: right;
+  }
+
+  .icon-v {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: var(--blue); // <-- Mudança
+    color: white;
+    border-radius: 50%;
+    font-size: normal;
+    font-weight: bold;
+    text-align: center;
+    line-height: 24px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+}
+
+// Estilos do formulário
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 1.2rem;
+  border: 1px solid var(--light-gray); // <-- Mudança
+  border-radius: 30px;
+  background-color: #ffffff;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &::placeholder {
+    color: var(--gray); // <-- Mudança
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--green); // <-- Mudança
+    // Sombra atualizada para usar a cor RGB de #40FF78
+    box-shadow: 0 0 8px rgba(64, 255, 120, 0.4); // <-- Mudança
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit-btn {
+  background-color: var(--green); // <-- Mudança
+  color: var(--dark); // <-- Mudança
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 0.85;
+    // Sombra atualizada para usar a cor RGB de #40FF78
+    box-shadow: 0 4px 12px rgba(64, 255, 120, 0.5); // <-- Mudança
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// ----- Responsividade -----
+@media (max-width: 900px) {
+  .contact-content {
+    margin: 0 auto;
+    max-width: 500px;
+  }
+
+  .circle-blue {
+    top: 5%;
+    left: 60%;
+    width: 150px;
+    height: 150px;
+  }
+
+  .circle-green-outline {
+    top: 50%;
+    left: -150px;
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+}

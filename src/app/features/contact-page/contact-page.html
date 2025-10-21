@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+
+<section class="contact-section">
+  <div class="circle-decoration circle-blue"></div>
+  <div class="circle-decoration circle-green-outline"></div>
+
+  <div class="contact-content">
+    <header class="contact-header">
+      <h2>
+        nos avisa aí,<br>
+        tamo esperando!
+      </h2>
+    </header>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+
+      <div class="form-field">
+        <input type="text" formControlName="name" placeholder="nome">
+        </div>
+
+      <div class="form-field">
+        <input type="email" formControlName="email" placeholder="email">
+      </div>
+
+      <div class="form-field">
+        <input type="text" formControlName="message" placeholder="oq te incomoda?">
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="submit-btn" [disabled]="contactForm.invalid">
+          enviar
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<app-footer></app-footer>
