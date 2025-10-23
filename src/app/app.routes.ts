@@ -7,6 +7,12 @@ import { ContactComponent } from './features/contact-page/contact-page';
 // TODO TitleStrategy
 export const routes: Routes = [
   {
+    path: '',
+    title: 'Redirecionando...',
+    pathMatch: 'full',
+    redirectTo: 'home'
+  },
+  {
     title: 'Velo',
     path: 'home',
     component: Home
