@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+
+<div class="contact-container">
+
+  <div class="circle-large"></div>
+  <div class="circle-small"></div>
+
+  <div class="contact-content">
+
+    <div class="headings">
+      <h1>nos avisa aí, </h1>
+      <h1>tamo esperando!</h1>
+    </div>
+
+    <form class="contact-form">
+
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="nome"
+          formControlName="nome">
+      </div>
+
+      <div class="form-group">
+        <input
+          type="email"
+          placeholder="email"
+          formControlName="email">
+      </div>
+
+      <div class="form-group">
+        <textarea
+          placeholder="oq te incomoda?"
+          rows="4"
+          formControlName="mensagem"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        enviar
+      </button>
+
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>

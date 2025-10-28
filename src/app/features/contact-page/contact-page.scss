@@ -1,0 +1,174 @@
+:host {
+  --brand-green: #40ff78;
+  --brand-blue-green: #20deb2;
+  --brand-blue: #00c6ff;
+  --brand-dark-blue: #007bff;
+  --text-color: #333;
+  --input-border: #e0e0e0;
+  --input-placeholder: #999;
+  --background-color: #ffffff;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 160px);
+  padding: 4rem 2rem;
+  background-color: var(--background-color);
+  position: relative;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.circle-large {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: linear-gradient(210deg, var(--brand-green), var(--brand-blue-green ));
+  bottom: -180px;
+  left: -180px;
+  opacity: 0.8;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    content: '';
+    display: block;
+    width: calc(100% - 145px);
+    height: calc(100% - 145px);
+    background: var(--background-color);
+    border-radius: 50%;
+  }
+}
+
+.circle-small {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, var(--brand-blue), var(--brand-dark-blue));
+  top: 290px;
+  left: 20%;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  justify-content: right;
+  width: 100%;
+  max-width: 500px;
+  margin-left: 950px;
+  margin-right: 100px;
+}
+
+.headings {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: var(--text-color);
+
+  h1 {
+    display: flex;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+    align-items: right;
+    justify-content: right;
+  }
+}
+
+.contact-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 1.1rem 1.5rem;
+  border-radius: 50px;
+  border: 1px solid var(--input-border);
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: var(--input-placeholder);
+    font-weight: 500;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--brand-green);
+    box-shadow: 0 0 8px rgba(0, 255, 155, 0.5);
+  }
+
+  &.ng-invalid.ng-touched,
+  &.invalid {
+    border-color: #ff3b30;
+  }
+}
+
+textarea {
+  border-radius: 30px;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-btn {
+  padding: 1.1rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  background-color: var(--brand-green);
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 150px;
+  align-self: flex-end;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 768px) {
+  .headings {
+
+    h1,
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
+  .submit-btn {
+    width: 100%;
+    align-self: center;
+  }
+}
