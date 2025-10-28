@@ -10,6 +10,7 @@ interface HelpTopic {
 
 @Component({
   selector: 'app-support-page',
+  standalone: true,
   imports: [Footer, Navbar, CommonModule],
   templateUrl: './support-page.html',
   styleUrl: './support-page.scss'
@@ -38,8 +39,8 @@ export class SupportPage {
       description: 'pedale tranquilo, o pagamento é com a gente.'
     },
     {
-      title: 'Lorem ipsum dolor sit amet',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      title: 'pagamentos e cobranças',
+      description: 'pedale tranquilo, o pagamento é com a gente.'
     }
   ];
 }
