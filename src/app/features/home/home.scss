@@ -32,7 +32,9 @@
 }
 
 .btn {
-  display: inline-block;
+  width: 600px;
+  display: inline-flex;
+  justify-content: center;
   padding: 2rem 6rem;
   border-radius: 999px;
   font-size: 1.8rem;
@@ -61,6 +63,21 @@
   }
 }
 
+:host {
+  --brand-green: #40ff78;
+  --brand-blue-green: #20deb2;
+  --brand-blue: #00c6ff;
+  --brand-dark-blue: #007bff;
+  --text-color: #333;
+  --input-border: #e0e0e0;
+  --input-placeholder: #999;
+  --background-color: #ffffff;
+  display: block;
+  position: relative;
+  overflow-x: hidden;
+  z-index: 1; // O :host em si atua como o container de nível 1
+}
+
 // =======================
 // 🌿 HERO
 // =======================
@@ -71,12 +88,11 @@
   align-items: center;
   padding: 4rem 10%;
   position: relative;
+  z-index: 1; // NÍVEL DO CONTEÚDO
 
   .hero-content {
-    max-width: 500px;
-
     h1 {
-      font-size: 5rem;
+      font-size: 3.5rem;
       font-weight: 800;
       line-height: 1.1;
       margin-bottom: 2rem;
@@ -88,49 +104,58 @@
       gap: 1rem;
     }
   }
+}
 
-  // Se quiser remover as bolas, comente ou apague todo bloco abaixo
-  /*
-  .hero-decoration {
-    flex: 1;
-    min-width: 280px;
+.background-decor {
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0; // NÍVEL DO FUNDO (ATUALIZADO)
+  }
+
+  // Círculo verde (topo-esquerda)
+  .circle-1 {
+    width: 500px;
+    height: 500px;
+    top: 220px;
+    right: -200px;
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(150deg, var(--brand-green), var(--brand-blue-green));
+    bottom: 210px;
+    right: -170px;
+    opacity: 0.8;
+    z-index: 0; // NÍVEL DO FUNDO (ATUALIZADO)
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
 
-    .tagline {
-      position: absolute;
-      bottom: -2rem;
-      right: 0;
-      font-weight: 700;
-      font-size: 1.2rem;
-      text-align: right;
-      line-height: 1.2;
-    }
-
-    .circle {
-      position: absolute;
+    &::before {
+      content: '';
+      display: block;
+      width: calc(100% - 140px);
+      height: calc(100% - 140px);
+      background: var(--background-color);
       border-radius: 50%;
-
-      &.blue {
-        width: 180px;
-        height: 180px;
-        background: var(--blue-gradient);
-        top: -2rem;
-        right: 4rem;
-      }
-
-      &.ring {
-        width: 200px;
-        height: 200px;
-        border: 20px solid var(--green;
-        top: 4rem;
-        right: -2rem;
-      }
     }
   }
-  */
+
+  .circle-2 {
+    width: 270px;
+    height: 270px;
+    top: 220px;
+    right: 350px;
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--brand-blue), var(--brand-dark-blue));
+    z-index: 0; // NÍVEL DO FUNDO (ATUALIZADO DE 2 PARA 0)
+  }
+}
+
+app-navbar,
+app-footer {
+  position: relative;
+  z-index: 2; // NÍVEL OVERLAY (NA FRENTE DE TUDO)
 }
 
 .radical-section {
@@ -141,12 +166,14 @@
   padding: 4rem 10%;
   border-radius: 20px;
   margin-bottom: 2rem;
+  position: relative; // Adicionado
+  z-index: 1; // NÍVEL DO CONTEÚDO
 
   .radical-content {
     text-align: right;
 
-    h2 {
-      font-size: 4.5rem;
+    h1 {
+      font-size: 3rem;
       font-weight: 800;
       margin-bottom: 1.5rem;
       color: var(--dark);
@@ -165,15 +192,18 @@
   margin: 1rem auto 2rem auto;
   -webkit-box-shadow: 0px 0px 25px -7px #000000cb;
   box-shadow: 0px 0px 25px -7px #000000cb;
+  position: relative; // Adicionado
+  z-index: 1; // NÍVEL DO CONTEÚDO
 }
 
 // =======================
 // 🌿 TABS SECTION
-// TODO Separar em um componente individual, com entrada de um Array
 // =======================
 .tabs-section {
   text-align: center;
   padding: 5rem 1rem;
+  position: relative; // Adicionado
+  z-index: 1; // NÍVEL DO CONTEÚDO
 
   .reveal-in {
     animation: fadeUp 600ms ease-out both;
@@ -181,7 +211,7 @@
   }
 
   h2 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: 2rem;
     line-height: 1.1;
@@ -205,7 +235,7 @@
 
     li {
       position: relative;
-      z-index: 1; // fica acima do underline
+      z-index: 1; // Correto (fica acima do .tabs-underline)
       list-style: none;
 
       a {
@@ -242,6 +272,7 @@
       left: 8px;
       width: 0;
       pointer-events: none;
+      // z-index: 0; (implícito, pois 'li' é z-index: 1)
     }
   }
 }
