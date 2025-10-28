@@ -105,3 +105,16 @@
   left: 0;
   width: 0;
 }
+
+.botao-verde-inicio {
+  background-color: #fff;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 24px;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
