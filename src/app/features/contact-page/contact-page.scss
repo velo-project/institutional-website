@@ -158,12 +158,10 @@ textarea {
   }
 }
 
-@media (max-width: 768px) {
-  .headings {
-
-    h1,
-    h2 {
+@media (max-width: 1439px) {
+  .contact-content{
       font-size: 2rem;
+      margin: 20px;
     }
   }
 
@@ -171,4 +169,3 @@ textarea {
     width: 100%;
     align-self: center;
   }
-}
