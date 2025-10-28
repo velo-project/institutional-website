@@ -1,0 +1,278 @@
+// =======================
+// ANIMAÇÕES
+// =======================
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes growIn {
+  0% {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// =======================
+// 🌿 Estilos Globais
+// =======================
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.btn {
+  width: 600px;
+  display: inline-flex;
+  justify-content: center;
+  padding: 2rem 6rem;
+  border-radius: 999px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.4s ease;
+
+  &.primary {
+    background: var(--green);
+    color: var(--dark);
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  &.secondary {
+    background: transparent;
+    color: var(--dark);
+    border: 2px solid var(--green);
+
+    &:hover {
+      background: var(--green);
+      color: var(--dark);
+    }
+  }
+}
+
+:host {
+  --brand-green: #40ff78;
+  --brand-blue-green: #20deb2;
+  --brand-blue: #00c6ff;
+  --brand-dark-blue: #007bff;
+  --text-color: #333;
+  --input-border: #e0e0e0;
+  --input-placeholder: #999;
+  --background-color: #ffffff;
+  display: block;
+  position: relative;
+  overflow-x: hidden;
+  z-index: 1; // O :host em si atua como o container de nível 1
+}
+
+// =======================
+// 🌿 HERO
+// =======================
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 10%;
+  position: relative;
+  z-index: 1; // NÍVEL DO CONTEÚDO
+
+  .hero-content {
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  }
+}
+
+.background-decor {
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0; // NÍVEL DO FUNDO (ATUALIZADO)
+  }
+
+  // Círculo verde (topo-esquerda)
+  .circle-1 {
+    width: 500px;
+    height: 500px;
+    top: 220px;
+    right: -200px;
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(150deg, var(--brand-green), var(--brand-blue-green));
+    bottom: 210px;
+    right: -170px;
+    opacity: 0.8;
+    z-index: 0; // NÍVEL DO FUNDO (ATUALIZADO)
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+      content: '';
+      display: block;
+      width: calc(100% - 140px);
+      height: calc(100% - 140px);
+      background: var(--background-color);
+      border-radius: 50%;
+    }
+  }
+
+  .circle-2 {
+    width: 270px;
+    height: 270px;
+    top: 220px;
+    right: 350px;
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--brand-blue), var(--brand-dark-blue));
+    z-index: 0; // NÍVEL DO FUNDO (ATUALIZADO DE 2 PARA 0)
+  }
+}
+
+app-navbar,
+app-footer {
+  position: relative;
+  z-index: 2; // NÍVEL OVERLAY (NA FRENTE DE TUDO)
+}
+
+.radical-section {
+  text-align: right;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 4rem 10%;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  position: relative; // Adicionado
+  z-index: 1; // NÍVEL DO CONTEÚDO
+
+  .radical-content {
+    text-align: right;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+  }
+}
+
+.divisor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  border-radius: 100px;
+  width: 85%;
+  height: 0px;
+  margin: 1rem auto 2rem auto;
+  -webkit-box-shadow: 0px 0px 25px -7px #000000cb;
+  box-shadow: 0px 0px 25px -7px #000000cb;
+  position: relative; // Adicionado
+  z-index: 1; // NÍVEL DO CONTEÚDO
+}
+
+// =======================
+// 🌿 TABS SECTION
+// =======================
+.tabs-section {
+  text-align: center;
+  padding: 5rem 1rem;
+  position: relative; // Adicionado
+  z-index: 1; // NÍVEL DO CONTEÚDO
+
+  .reveal-in {
+    animation: fadeUp 600ms ease-out both;
+    will-change: transform, opacity;
+  }
+
+  h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  // Container das abas com underline animado
+  .tabs {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.03);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    font-size: 2rem;
+    animation: growIn 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    border-radius: 50px;
+
+    li {
+      position: relative;
+      z-index: 1; // Correto (fica acima do .tabs-underline)
+      list-style: none;
+
+      a {
+        display: block;
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 600;
+        border-radius: 999px;
+        transition: color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+        will-change: transform;
+        padding: 0.8rem 1.6rem;
+
+        &.active {
+          color: var(--dark);
+        }
+
+        &:hover {
+          transform: translateY(-1px) scale(1.02);
+          background: rgba(0, 0, 0, 0.05);
+        }
+      }
+    }
+
+    // Underline deslizante
+    .tabs-underline {
+      position: absolute;
+      bottom: 4px;
+      height: 3px;
+      background: var(--green);
+      border-radius: 2px;
+      transition: left 220ms ease, width 220ms ease;
+      will-change: left, width;
+      content: '';
+      left: 8px;
+      width: 0;
+      pointer-events: none;
+      // z-index: 0; (implícito, pois 'li' é z-index: 1)
+    }
+  }
+}
